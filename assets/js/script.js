@@ -16,6 +16,19 @@ $(document).ready(function () {
 
   displayUser();
 
+  function createCard(response, section) {
+    $(`#${section}`).empty();
+    for (let i = 0; i < response.Search.length; i++) {
+      const element = response.Search[i];
+      var image = $("<img>");
+      image.attr("src", element.Poster);
+      image.attr("class", "poster");
+      var cardDiv = $("<div>").attr("class", "card");
+      cardDiv.append(image);
+      $(`#${section}`).append(cardDiv);
+    }
+  }
+
   $("#go").on("click", function (event) {
     reset();
     event.preventDefault();
@@ -23,35 +36,34 @@ $(document).ready(function () {
     $.ajax({
       url: url + searchVal,
       method: "GET",
-    }).then(function (response) {
-      console.log(response);
-      for (let i = 0; i < response.Search.length; i++) {
-        var movieEach = response.Search[i];
-        var image = $("<img>");
-        image.attr("src", movieEach.Poster);
-        image.attr("class", "poster");
-        var cardDiv = $("<div>").attr("class", "card");
-        cardDiv.append(image);
-        $("#searched").append(cardDiv);
-      }
-    });
+    }).then(function (response) {});
   });
 
-  // $(document).on("click", ".card", function (event) {
-  //   const thisMovie = $(this).attr("data-name");
-  //   const singleMovieUrl =
-  //     "http://www.omdbapi.com/?&apikey=" + apiKey + "&t=" + thisMovie;
+  function displayComedy() {
+    var comedyQuery =
+      "http://www.omdbapi.com/?&apikey=" +
+      apiKey +
+      "&page=1&type=series&s=batman";
+    $.ajax({
+      url: comedyQuery,
+      method: "GET",
+    }).then(function (response) {
+      createCard(response, "series");
+    });
+  }
 
-  //   $.ajax({
-  //     url: singleMovieUrl,
-  //     method: "GET",
-  //   }).then(function (data) {
-  //     console.log("data", data);
-  //     console.log(event.target);
-  //     const element = event.target;
-  //     if (element.matches("button")) {
-  //       window.location.href = "./favorites.html";
-  //     }
-  //   });
-  // });
+  function action() {
+    var actionQuery =
+      "http://www.omdbapi.com/?&apikey=" +
+      apiKey +
+      "&page=1&type=series&s=vikings";
+    $.ajax({
+      url: actionQuery,
+      method: "GET",
+    }).then(function (response) {
+      createCard(response, "action");
+    });
+  }
+  action();
+  displayComedy();
 });
