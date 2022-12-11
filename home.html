@@ -9,28 +9,66 @@
   </head>
   <body>
     <header>
-      <h1 class="title">GetFlix</h1>
-      <nav>
-        <ul>
-          <li><a href="favorites.html">Favorites</a></li>
-          <li><a href="">Contact</a></li>
-        </ul>
-      </nav>
+      <h1>GetFlix</h1>
     </header>
-    <div class="search-area">
-      <form action="">
-        <label for="movie"></label>
-        <input
-          type="text"
-          class="movie"
-          name="movie"
-          placeholder="find a movie"
-        />
-        <button type="submit" class="search">Search</button>
-      </form>
-    </div>
-    <section class="container"></section>
-
+    <main>
+      <aside class="sidebar menu">
+        <nav class="sticky">
+          <form action="">
+            <label for="search">Search:</label>
+            <input type="text" placeholder="movie title" />
+          </form>
+          <div class="link-list">
+            <ul>
+              <li class="search-term"><a href="#trending">Trending</a></li>
+              <li class="search-term"><a href="#action">Action</a></li>
+              <li class="search-term"><a href="#drama">Drama</a></li>
+              <li class="search-term"><a href="www.google.com">Sci fi</a></li>
+              <li class="search-term"><a href="www.google.com">Comedy</a></li>
+              <li class="search-term"><a href="www.google.com">Romance</a></li>
+            </ul>
+          </div>
+        </nav>
+      </aside>
+      <section class="movie">
+        <div id="trending" class="movie-area">
+          <h2>trending</h2>
+          <img
+            src="https://image.tmdb.org/t/p/w500/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg"
+            alt="movie poster"
+          />
+          <div class="movie-info">
+            <h3>Movie Title</h3>
+            <p>Movie Description</p>
+          </div>
+        </div>
+        <div id="action" class="movie-area">
+          <h2>Action</h2>
+          <img
+            src="https://image.tmdb.org/t/p/w500/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg"
+            alt="movie poster"
+          />
+          <div class="movie-info">
+            <h3>Movie Title</h3>
+            <p>Movie Description</p>
+          </div>
+        </div>
+        <div id="drama" class="movie-area">
+          <h2>Drama</h2>
+          <img
+            src="https://image.tmdb.org/t/p/w500/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg"
+            alt="movie poster"
+          />
+          <div class="movie-info">
+            <h3>Movie Title</h3>
+            <p>Movie Description</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2021 GetFlix</p>
+    </footer>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
       referrerpolicy="no-referrer"

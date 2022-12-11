@@ -17,17 +17,16 @@ $(document).ready(function () {
       url: url + searchVal,
       method: "GET",
     }).then(function (response) {
+      console.log(response);
       for (let i = 0; i < response.Search.length; i++) {
         var movieEach = response.Search[i];
         var title = $("<h5>" + movieEach.Title + "</h5>");
         var image = $("<img>");
         image.attr("src", movieEach.Poster);
         image.attr("class", "poster");
-        const movieInfo = $("<button>Movie Details</button>");
-        movieInfo.addClass("movieDetails");
         var cardDiv = $("<div>").attr("class", "card");
         cardDiv.attr("data-name", movieEach.Title);
-        cardDiv.append(image, title, movieInfo);
+        cardDiv.append(image, title);
         $(".container").append(cardDiv);
       }
     });
