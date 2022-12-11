@@ -6,13 +6,13 @@ $(document).ready(function () {
 
   function reset() {
     searchVal = "";
-    $(".container").empty();
+    $(".results").empty();
   }
 
-  $(".search").on("click", function (event) {
+  $("#go").on("click", function (event) {
     reset();
     event.preventDefault();
-    searchVal = $(".movie").val().trim();
+    searchVal = $("#search-box").val().trim();
     $.ajax({
       url: url + searchVal,
       method: "GET",
@@ -20,14 +20,12 @@ $(document).ready(function () {
       console.log(response);
       for (let i = 0; i < response.Search.length; i++) {
         var movieEach = response.Search[i];
-        var title = $("<h5>" + movieEach.Title + "</h5>");
         var image = $("<img>");
         image.attr("src", movieEach.Poster);
         image.attr("class", "poster");
         var cardDiv = $("<div>").attr("class", "card");
-        cardDiv.attr("data-name", movieEach.Title);
-        cardDiv.append(image, title);
-        $(".container").append(cardDiv);
+        cardDiv.append(image);
+        $("#searched").append(cardDiv);
       }
     });
   });
