@@ -9,6 +9,13 @@ $(document).ready(function () {
     $(".results").empty();
   }
 
+  function displayUser() {
+    var user = localStorage.getItem("user");
+    $(".user").text(user);
+  }
+
+  displayUser();
+
   $("#go").on("click", function (event) {
     reset();
     event.preventDefault();
