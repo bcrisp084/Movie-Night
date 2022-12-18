@@ -186,6 +186,10 @@ footer {
   margin-top: 10px;
 }
 
+#go:hover {
+  box-shadow: 1px 1px 1px white, -1px -1px 1px white;
+}
+
 .poster {
   width: 100%;
   height: 100%;

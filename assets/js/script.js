@@ -17,8 +17,6 @@ $(document).ready(function () {
     }
   }
 
-  function cardBack() {}
-
   displayUser();
 
   function createCard(response, section) {
